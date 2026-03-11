@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #ffffff;
+    --color-surface: #f8fafc;
+    --color-border: #e2e8f0;
+    --color-text: #0f172a;
+    --color-muted: #64748b;
+    --color-brand: #0ea5e9;
+  }
+
+  .dark {
+    --color-bg: #0f172a;
+    --color-surface: #1e293b;
+    --color-border: #334155;
+    --color-text: #f1f5f9;
+    --color-muted: #94a3b8;
+    --color-brand: #38bdf8;
+  }
+
+  * {
+    @apply border-slate-200 dark:border-slate-700;
+  }
+
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans;
+  }
+
+  ::selection {
+    @apply bg-sky-200 dark:bg-sky-800;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-sky-500 hover:bg-sky-600 text-white focus:ring-sky-500;
+  }
+
+  .btn-secondary {
+    @apply btn bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 focus:ring-slate-400;
+  }
+
+  .btn-ghost {
+    @apply btn hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 focus:ring-slate-400;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-500 hover:bg-red-600 text-white focus:ring-red-500;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm transition-colors;
+  }
+
+  .card {
+    @apply bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-slate-200 dark:bg-slate-700 rounded;
+  }
+}
+
+/* TipTap editor styles */
+.ProseMirror {
+  @apply outline-none min-h-full;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  @apply text-slate-400 dark:text-slate-500 pointer-events-none float-left h-0;
+}
+
+.ProseMirror h1 { @apply text-3xl font-bold mt-6 mb-3 text-slate-900 dark:text-slate-100; }
+.ProseMirror h2 { @apply text-2xl font-semibold mt-5 mb-2 text-slate-900 dark:text-slate-100; }
+.ProseMirror h3 { @apply text-xl font-semibold mt-4 mb-2 text-slate-900 dark:text-slate-100; }
+.ProseMirror p { @apply mb-3 leading-relaxed; }
+.ProseMirror ul { @apply list-disc list-outside ml-6 mb-3 space-y-1; }
+.ProseMirror ol { @apply list-decimal list-outside ml-6 mb-3 space-y-1; }
+.ProseMirror li { @apply leading-relaxed; }
+.ProseMirror strong { @apply font-semibold; }
+.ProseMirror em { @apply italic; }
+.ProseMirror u { @apply underline; }
+.ProseMirror s { @apply line-through; }
+.ProseMirror code { @apply font-mono text-sm bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-pink-600 dark:text-pink-400; }
+.ProseMirror pre { @apply bg-slate-900 dark:bg-slate-950 text-slate-100 p-4 rounded-xl mb-4 overflow-x-auto; }
+.ProseMirror pre code { @apply bg-transparent text-inherit p-0; }
+.ProseMirror blockquote { @apply border-l-4 border-sky-400 pl-4 italic text-slate-600 dark:text-slate-400 my-4; }
+.ProseMirror hr { @apply border-slate-200 dark:border-slate-700 my-6; }
+.ProseMirror a { @apply text-sky-500 hover:underline cursor-pointer; }
+
+/* Collaboration cursor styles */
+.collaboration-cursor__caret {
+  border-left: 2px solid;
+  border-right: 2px solid;
+  margin-left: -1px;
+  margin-right: -1px;
+  word-break: normal;
+  pointer-events: none;
+  position: relative;
+}
+
+.collaboration-cursor__label {
+  border-radius: 3px 3px 3px 0;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  left: -1px;
+  line-height: normal;
+  padding: 0.1rem 0.3rem;
+  position: absolute;
+  top: -1.4em;
+  user-select: none;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-slate-300 dark:bg-slate-600 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-slate-400 dark:bg-slate-500; }
