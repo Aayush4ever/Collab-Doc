@@ -3,7 +3,7 @@
 ---
 
 A production-ready Google Docs-style collaborative document editor built with React, Node.js, MongoDB, and Socket.io.
-Live at : https://collab-doc-rose.vercel.app/login
+Live at : https://collab-doc-rose.vercel.app/
 ---
 
 ## ✨ Features
